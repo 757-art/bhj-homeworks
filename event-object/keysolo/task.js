@@ -17,17 +17,18 @@ class Game {
   }
 
   registerEvents() {
-   let symbol = this.currentSymbol.textContent;
-   console.log(symbol);
-   console.log(this.currentSymbol);
-   function updatePlayer(event){
-   console.log(event.key, event.code);
-      if (symbol == event.key) {
-      this.success;
-    } else this.fail;
-    }
-    document.addEventListener('keyup',updatePlayer);
+    document.addEventListener('keydown', newSymbol => {
+      console.log(newSymbol);
+        if (this.currentSymbol.textContent == newSymbol.key) {
+                this.success();
+              } else {
+                this.fail();
+              }
+    }) 
   }
+    
+  
+    
 
   success() {
     this.currentSymbol.classList.add('symbol_correct');
