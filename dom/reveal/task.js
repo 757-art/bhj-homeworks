@@ -8,5 +8,6 @@ document.addEventListener('scroll', () => {
         } else {
             elem.classList.remove('reveal_active');
         }
+       
 })
 });
