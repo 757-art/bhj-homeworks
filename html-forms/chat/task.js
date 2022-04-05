@@ -14,9 +14,24 @@ document.addEventListener('keydown', e => {
       let rand = Math.floor(Math.random()*robotMessages.length);
       let rValue = robotMessages[rand];
       if (message != '') {
-        messages.innerHTML += timeStr + ": " +  message + "<br/>"
-        textBox.value = '';
-        messages.innerHTML += timeStr + ": " +  rValue + "<br/>"
+        messages.innerHTML += `
+        <div class="message message_client">
+          <div class="message__time">${timeStr}</div>
+          <div class="message__text">
+            ${message}
+          </div>
+        </div>
+      `;
+      textBox.value = '';
+      messages.innerHTML += `
+      <div class="message ">
+        <div class="message__time">${timeStr}</div>
+        <div class="message__text">
+          ${rValue}
+        </div>
+      </div>
+    `;
+    
 
     } else {
     alert('Строка пуста')
