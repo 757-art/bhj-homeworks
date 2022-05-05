@@ -4,8 +4,8 @@ let form = document.getElementById('tasks__form');
 let tasks = document.querySelectorAll('.task');
 
 form.onsubmit = function() {
-    let text = newTaskField.value;
-    if (text != '') {
+    let text = newTaskField.value.trim();
+    if (text) {
         taskList.insertAdjacentHTML("beforeend", `<div class="task">
         <div class="task__title">${text}</div>
         <a href="#" class="task__remove">
@@ -13,14 +13,10 @@ form.onsubmit = function() {
         </a>
         </div>`)
         let remover = document.querySelectorAll('.task__remove');
-        for (let i = 0; i < remover.length; i++) {
-            i = remover[remover.length -1] 
-            i.addEventListener('click', function(){
-                i.parentElement.remove();
+            remover[remover.length -1].addEventListener('click', function(){
+                this.parentElement.remove();
             })
-        }
-    
-          
+         
     }
     newTaskField.value = '';
     return false;
