@@ -5,9 +5,7 @@ let cart = document.querySelector('.cart__products');
 
 let addToCard = function(elem_id, elem_img, elem_count) {
     let cartProduct = Array.from(cart.querySelectorAll('.cart__product'));
-    let cartIndex = cartProduct.findIndex(elem => {
-        return elem_id == elem.getAttribute('data-id')
-      })
+    let cartIndex = cartProduct.findIndex(elem => elem_id == elem.getAttribute('data-id'))
 
     if (cartIndex == -1) {
         cart.innerHTML += `
