@@ -1,10 +1,11 @@
 let product = document.querySelectorAll('.product');
 let cart = document.querySelector('.cart__products');
 
+
+
 let addToCard = function(elem_id, elem_img, elem_count) {
-    
-    let cartProduct = Array.from(document.querySelectorAll('.cart__product'));
-    let cartIndex = cartProduct.findIndex(function(elem){
+    let cartProduct = Array.from(cart.querySelectorAll('.cart__product'));
+    let cartIndex = cartProduct.findIndex(elem => {
         return elem_id == elem.getAttribute('data-id')
       })
 
@@ -14,7 +15,7 @@ let addToCard = function(elem_id, elem_img, elem_count) {
         <img class="cart__product-image" src = "${elem_img}">
         <div class="cart__product-count">${elem_count}</div>
         </div>
-      `; 
+      `;
     } else {
         cartProduct[cartIndex].querySelector('.cart__product-count').innerText = Number(cartProduct[cartIndex].querySelector('.cart__product-count').innerText) + elem_count
     }
@@ -31,7 +32,6 @@ product.forEach((elem) => {
     let productId = elem.getAttribute('data-id');
     let productImg = elem.querySelector('.product__image').getAttribute('src');
 
-    let cartProduct = Array.from(document.querySelectorAll('.cart__product'));
     
     productAdd.onclick = function() {
         quantity += 1;
