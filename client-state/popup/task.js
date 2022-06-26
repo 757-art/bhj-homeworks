@@ -1,7 +1,7 @@
 const modal = document.querySelector('.modal');
 const modalClose = document.querySelectorAll(".modal__close");
 modal.classList.toggle('modal_active');
-remo
+
     function setCookie(name, value) {
     
         value = encodeURIComponent(value)
