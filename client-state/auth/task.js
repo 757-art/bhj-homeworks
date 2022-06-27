@@ -11,24 +11,34 @@ myForm.addEventListener('submit', (e) => {
     xhr.responseType = 'json';
 
     xhr.send(formData);
-
+      
         xhr.onload = function() {
-            if (xhr.status == 200) {
+            try {
              let responseObj = xhr.response;   
               console.log('Успех');
               if (responseObj.success == true) {
                 localStorage.login = responseObj.user_id;
                 welcome.classList.add('welcome_active')
-                loginID.innerHTML = localStorage.login; 
+                loginID.innerHTML = localStorage.getItem('login'); 
+                console.log(localStorage.getItem('login'))
+                myForm.reset();
               } else {
                 welcome.classList.add('welcome_active')
                   welcome.innerHTML = 'Неверный логин/пароль'
               }
                 
-            } else {
+            } catch {
                 console.log(this.status);
             }
         }
-        
+  
     e.preventDefault();
 }) 
+
+function ready() {
+  if (localStorage.getItem('login') != undefined) {
+    welcome.classList.add('welcome_active');
+    loginID.innerHTML = localStorage.getItem('login');
+  }
+}
+document.addEventListener("DOMContentLoaded", ready);
