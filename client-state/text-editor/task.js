@@ -5,6 +5,5 @@ const editor = document.getElementById('editor');
     console.log(localStorage.text)
     }) 
     
-editor.value= localStorage.text
-
+ editor.value= localStorage.getItem('text')
 
